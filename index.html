@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maths Solution by BRD</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Raleway:wght@300;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Raleway:wght@300;400;600&family=Roboto+Mono:wght@400&display=swap');
 
         * {
             margin: 0;
@@ -18,11 +18,13 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             font-family: 'Raleway', sans-serif;
             background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') no-repeat center center/cover;
+            background-attachment: fixed;
             color: #ffffff;
             position: relative;
+            padding-bottom: 50px;
         }
 
         .overlay {
@@ -31,26 +33,26 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
         }
 
         .moon-element {
             position: fixed;
-            top: 10%;
-            right: 10%;
-            width: 100px;
-            height: 100px;
+            top: 50px;
+            right: 50px;
+            width: 120px;
+            height: 120px;
             background: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg') no-repeat center center/cover;
             border-radius: 50%;
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
-            z-index: 0;
-            animation: float 10s ease-in-out infinite;
+            box-shadow: 0 0 60px rgba(255, 255, 255, 0.6);
+            z-index: 1;
+            animation: float 12s ease-in-out infinite;
         }
 
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-25px); }
             100% { transform: translateY(0px); }
         }
 
@@ -58,43 +60,43 @@
             position: relative;
             z-index: 10;
             background: rgba(16, 22, 35, 0.85);
-            backdrop-filter: blur(12px);
-            padding: 2.5rem;
+            backdrop-filter: blur(15px);
+            padding: 3rem;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 40px rgba(0, 150, 255, 0.2);
+            box-shadow: 0 0 50px rgba(0, 150, 255, 0.15);
             text-align: center;
-            max-width: 800px;
-            width: 90%;
-            margin: 40px 20px;
+            max-width: 900px;
+            width: 95%;
+            margin-top: 80px;
         }
 
         h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
             background: linear-gradient(90deg, #00d2ff, #3a7bd5);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+            text-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
             letter-spacing: 2px;
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .subheading {
-            font-size: 0.95rem;
+            font-size: 1rem;
             line-height: 1.6;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             color: #d1d5db;
             font-weight: 300;
         }
 
         .section-header {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #00d2ff;
-            margin: 2.5rem 0 1.5rem 0;
+            margin: 3rem 0 1.5rem 0;
             letter-spacing: 1px;
             text-transform: uppercase;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -114,7 +116,7 @@
             padding: 1rem 2rem;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: white;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -122,14 +124,15 @@
             transition: all 0.4s ease;
             overflow: hidden;
             letter-spacing: 1px;
-            min-width: 220px;
+            min-width: 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .space-btn:hover {
             background: rgba(0, 210, 255, 0.2);
             border-color: #00d2ff;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
-            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
+            transform: translateY(-4px);
         }
 
         .space-btn::before {
@@ -139,28 +142,79 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.6s;
         }
 
         .space-btn:hover::before {
             left: 100%;
         }
 
+        /* Question Section Styles */
+        .question-box {
+            text-align: left;
+            margin-top: 2rem;
+        }
+
+        details {
+            background: rgba(0, 0, 0, 0.3);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1rem;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            color: #a8b2d1;
+            font-size: 1rem;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        summary:hover {
+            background: rgba(255,255,255,0.05);
+            color: #00ffaa;
+        }
+
+        summary::after {
+            content: '+';
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .q-content {
+            padding: 1.5rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .q-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .math {
+            font-style: italic;
+            color: #88ccff;
+        }
+
         @media (max-width: 600px) {
-            h1 {
-                font-size: 1.4rem;
-            }
-            .container {
-                padding: 1.5rem;
-            }
-            .button-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .space-btn {
-                width: 100%;
-            }
+            h1 { font-size: 1.5rem; }
+            .container { padding: 1.5rem; margin-top: 40px; }
+            .moon-element { width: 80px; height: 80px; top: 20px; right: 20px; }
+            .space-btn { width: 100%; }
         }
     </style>
 </head>
@@ -176,6 +230,7 @@
             These are the questions from maths assignments with their answers. All the questions are seperated with their topic. Not all the answers are by me, I got some from different internet sources so a pint of them may or may not be wrong.
         </p>
 
+        <!-- Main Assignments -->
         <div class="button-container">
             <a href="https://bibhavdas.github.io/ENG-MTH-unit-1-and-4/" class="space-btn">
                 Unit 1 and 4
@@ -185,8 +240,8 @@
             </a>
         </div>
 
+        <!-- Detailed Solutions -->
         <h2 class="section-header">Detailed step by step solution</h2>
-
         <div class="button-container">
             <a href="https://bibhavdas.github.io/ENG-MTH-DETAILED-SOL-UNIT-1-AND-4/" class="space-btn">
                 Unit 1 and 4 (Detailed sol)
@@ -194,6 +249,149 @@
             <a href="https://bibhavdas.github.io/ENG-MTH-DETAILED-SOL-UNIT-2-AND-3/" class="space-btn">
                 Unit 2 and 3 (Detailed sol)
             </a>
+        </div>
+
+        <!-- Suggestive Questions -->
+        <h2 class="section-header">Suggestive questions</h2>
+        <div class="button-container">
+            <a href="https://bibhavdas.github.io/ENG-MTH-SUGGESTIVE-QUESTIONS/" class="space-btn">
+                Suggestive Questions
+            </a>
+        </div>
+
+        <!-- PYQ's -->
+        <h2 class="section-header">PYQ's (2024 End Sem)</h2>
+        <div class="button-container">
+            <a href="https://bibhavdas.github.io/ENG-MTH-PYQ-1-2024-/" class="space-btn">
+                PYQ 1
+            </a>
+            <a href="https://bibhavdas.github.io/ENG-MTH-PYQ-2-2024-/" class="space-btn">
+                PYQ 2
+            </a>
+        </div>
+
+        <!-- Question Repository -->
+        <h2 class="section-header">Question Repository</h2>
+        
+        <div class="question-box">
+            <details>
+                <summary>Part A: Vectors & Calculus (Q1 - Q13)</summary>
+                <div class="q-content">
+                    <div class="q-item">
+                        <strong>1.</strong> What is the condition for two vectors <span class="math">a</span> & <span class="math">b</span> to be perpendicular and to be parallel?
+                    </div>
+                    <div class="q-item">
+                        <strong>2.</strong> Find the angle b/w the vectors <span class="math">a = &lt;2, 2, -1&gt;</span> & <span class="math">b = &lt;5, -3, 2&gt;</span>. Find <span class="math">a &times; b</span> and a vector that is orthogonal to both <span class="math">a</span> & <span class="math">b</span>.
+                    </div>
+                    <div class="q-item">
+                        <strong>3.</strong> When are 3 vectors <span class="math">a, b, c</span> coplanar, i.e., they lie on the same plane? Are the vectors <span class="math">a = &lt;1, 1, 2&gt;</span>, <span class="math">b = &lt;1, -2, 1&gt;</span> & <span class="math">c = &lt;3, -1, 5&gt;</span> coplanar?
+                    </div>
+                    <div class="q-item">
+                        <strong>4.</strong> Find a vector that is perpendicular to the plane that passes through the points P(1, 4, 6), Q(-2, 5, -1) & R(1, -1, 1).
+                    </div>
+                    <div class="q-item">
+                        <strong>5.</strong> If <span class="math">f(x,y,z) = x<sup>y/z</sup></span>, then find all the 1st order & 2nd order partial derivatives of <span class="math">f</span>.
+                    </div>
+                    <div class="q-item">
+                        <strong>6.</strong> Find <span class="math">&part;z/&part;x</span> & <span class="math">&part;z/&part;y</span> when:<br>
+                        (i) <span class="math">x<sup>2</sup> + 2y<sup>2</sup> + 3z<sup>2</sup> = 1</span><br>
+                        (ii) <span class="math">yz + x log y = z<sup>2</sup></span>
+                    </div>
+                    <div class="q-item">
+                        <strong>7.</strong> Find <span class="math">&part;z/&part;s</span> & <span class="math">&part;z/&part;t</span> when:<br>
+                        (i) <span class="math">z = x<sup>2</sup>y<sup>3</sup>, x = s cos t, y = s sin t</span><br>
+                        (ii) <span class="math">z = tan(u/v)</span>, <span class="math">u = 2s<sup>2</sup> + 3t</span> & <span class="math">v = &radic;(s<sup>2</sup>+t<sup>3</sup>)</span>
+                    </div>
+                    <div class="q-item">
+                        <strong>8.</strong> For each of a, b & c below find the following: (i) <span class="math">&nabla;f</span>, (ii) <span class="math">D<sub>u</sub>f(P)</span>:<br>
+                        (a) <span class="math">f(x,y) = sin(2x+3y)</span>, P(-6, 4), <span class="math">u = &lt;&radic;3/2, -1/2&gt;</span><br>
+                        (b) <span class="math">f(x,y) = y<sup>2</sup>/x</span>, P(1, 2), <span class="math">u = &lt;2/3, &radic;5/3&gt;</span><br>
+                        (c) <span class="math">f(x,y,z) = y<sup>2</sup>e<sup>xyz</sup></span>, P(0, 1, -1), <span class="math">u = &lt;3/13, 4/13, 12/13&gt;</span>
+                    </div>
+                    <div class="q-item">
+                        <strong>9.</strong> Find the points of local max, local min & saddle pts for:<br>
+                        (a) <span class="math">f(x,y) = xy + 1/x + 1/y</span><br>
+                        (b) <span class="math">f(x,y) = e<sup>y</sup>(y<sup>2</sup> - x<sup>2</sup>)</span>
+                    </div>
+                    <div class="q-item">
+                        <strong>10.</strong> Prove that <span class="math">f<sub>1</sub></span> & <span class="math">f<sub>2</sub></span> are both homogeneous & comment on their degrees, where:<br>
+                        <span class="math">f<sub>1</sub>(x,y) = x<sup>3</sup> - 2x<sup>2</sup>y + 3xy<sup>2</sup> + y<sup>3</sup></span><br>
+                        <span class="math">f<sub>2</sub>(x,y) = x log(y/x)</span>
+                    </div>
+                    <div class="q-item">
+                        <strong>11.</strong> Evaluate the following double integrals:<br>
+                        (i) <span class="math">&int;<sub>0</sub><sup>4</sup> &int;<sub>0</sub><sup>&radic;y</sup> xy<sup>2</sup> dx dy</span><br>
+                        (ii) <span class="math">&int;&int;<sub>D</sub> y / (x<sup>5</sup>+1) dA</span>, where <span class="math">D = {(x,y) &isin; R<sup>2</sup> | 0 &le; x &le; 1, 0 &le; y &le; x<sup>2</sup>}</span><br>
+                        (iii) <span class="math">&int;&int;<sub>D</sub> x<sup>3</sup> dA</span>, where <span class="math">D = {(x,y) &isin; R<sup>2</sup> | 1 &le; x &le; e, 0 &le; y &le; ln x}</span>
+                    </div>
+                    <div class="q-item">
+                        <strong>12.</strong> Show that any vector field of the form <span class="math">F(x,y,z) = &lt;f(x), g(y), h(z)&gt;</span> is conservative & any vector field of the form <span class="math">F(x,y,z) = &lt;f(y,z), g(x,z), h(x,y)&gt;</span> is solenoidal.
+                    </div>
+                    <div class="q-item">
+                        <strong>13.</strong> Find curl(F) & div(F) for each vector field F:<br>
+                        (a) <span class="math">F(x,y,z) = &lt;x+yz, y+xz, z+xy&gt;</span><br>
+                        (b) <span class="math">F(x,y,z) = &lt;x/D, y/D, z/D&gt;</span>, where <span class="math">D = &radic;(x<sup>2</sup>+y<sup>2</sup>+z<sup>2</sup>)</span>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>Part B: Matrices & Linear Algebra (Q14 - Q21)</summary>
+                <div class="q-content">
+                    <div class="q-item">
+                        <strong>14.</strong> Find the matrix A s.t.<br>
+                        (2 1 | 3 2) A (-3 2 | 5 -3) = (-2 4 | 3 -1)
+                    </div>
+                    <div class="q-item">
+                        <strong>15.</strong> If A = (1 1 2 | 1 9 3 | 1 4 2) & B = (1 2 0 | 2 3 -1 | 1 -1 3), then verify that (BA)<sup>-1</sup> = A<sup>-1</sup>B<sup>-1</sup>.
+                    </div>
+                    <div class="q-item">
+                        <strong>16.</strong> Find the rank of the matrices:<br>
+                        A = (8 1 3 6 | 0 3 2 2 | -8 -1 -3 4) & B = (1 2 3 | 2 3 1 | 1 1 -2)
+                    </div>
+                    <div class="q-item">
+                        <strong>17.</strong> Solve the systems of linear equations:<br>
+                        (i) <span class="math">x<sub>1</sub> + x<sub>2</sub> + x<sub>3</sub> = 1</span><br>
+                        <span class="math">x<sub>1</sub> + 2x<sub>2</sub> + 3x<sub>3</sub> = 6</span><br>
+                        <span class="math">x<sub>1</sub> + 3x<sub>2</sub> + 4x<sub>3</sub> = 6</span><br><br>
+                        (ii) <span class="math">2x - y + 3z = 8</span><br>
+                        <span class="math">x - 2y - z = -4</span><br>
+                        <span class="math">3x + y - 4z = 0</span>
+                    </div>
+                    <div class="q-item">
+                        <strong>18.</strong> When do we say that a system of linear equations is consistent? When is it inconsistent? Write the suitable conditions for determining both.
+                    </div>
+                    <div class="q-item">
+                        <strong>19.</strong> Test for consistency of solution(s) for the following system of linear equations and find all the solution whenever it exists:<br>
+                        <span class="math">5x + 3y + 7z = 4</span><br>
+                        <span class="math">3x + 26y + 2z = 9</span><br>
+                        <span class="math">7x + 2y + 10z = 5</span>
+                    </div>
+                    <div class="q-item">
+                        <strong>20.</strong> Investigate the values of <span class="math">&lambda;</span> & <span class="math">&mu;</span> such that the system:<br>
+                        <span class="math">2x + 3y + 5z = 9</span><br>
+                        <span class="math">7x + 3y - 2z = 8</span><br>
+                        <span class="math">2x + 3y + &lambda;z = &mu;</span><br>
+                        have (i) no solution, (ii) a unique solution, (iii) infinitely many solutions.
+                    </div>
+                    <div class="q-item">
+                        <strong>21.</strong> Verify the Cayley-Hamilton Theorem for:<br>
+                        (i) (1 1 3 | 1 5 1 | 3 1 1)<br>
+                        (ii) (1 1 3 | 1 3 -3 | -2 -4 -4)<br>
+                        Also find their eigenvalues & eigenvectors. Are they diagonalizable? Justify your answer. Also find their inverse whenever it exists.
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>Part C: Special Functions (Q22)</summary>
+                <div class="q-content">
+                    <div class="q-item">
+                        <strong>22.</strong> Define the Beta & the Gamma functions. Find the value of <span class="math">&Gamma;(6)</span> & <span class="math">&beta;(5, 4)</span>.<br>
+                        Also show that <span class="math">&beta;(m+1, n) = m/(m+n) &beta;(m,n)</span> & that <span class="math">&beta;(m+1, n) + &beta;(m, n+1) = &beta;(m, n)</span>.
+                    </div>
+                </div>
+            </details>
         </div>
     </div>
 
